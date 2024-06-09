@@ -15,6 +15,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navDeepLink
 import com.example.jetpackcompose.screen.Destination
 import com.example.jetpackcompose.screen.DetailScreen
 import com.example.jetpackcompose.screen.ListScreen
@@ -36,7 +37,7 @@ class MainActivity : ComponentActivity() {
     private fun AppNavigation(navController: NavHostController) {
         NavHost(navController = navController, startDestination = Destination.List.route) {
             composable(Destination.List.route) { ListScreen(navController = navController) }
-            composable(Destination.Detail.route) { backStackEntry ->
+            composable(Destination.Detail.route, deepLinks = listOf(navDeepLink { uriPattern = "https://www.bahmanghasemi.ir/{userId}" })) { backStackEntry ->
                 val id = backStackEntry.arguments?.getString("userId")
                 id?.let {
                     DetailScreen(id = it.toInt())
