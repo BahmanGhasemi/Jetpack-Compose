@@ -51,9 +51,9 @@ class MainActivity : ComponentActivity() {
                 var selectedIndex by rememberSaveable { mutableIntStateOf(0) }
                 val scope = rememberCoroutineScope()
 
-                DismissibleNavigationDrawer(
+                ModalNavigationDrawer(
                     drawerContent = {
-                        DismissibleDrawerSheet(modifier = Modifier.padding(top = 16.dp)) {
+                        ModalDrawerSheet(modifier = Modifier.padding(top = 16.dp)) {
                             val items = NavItem.getItems()
                             items.forEachIndexed { index, navItem ->
                                 NavigationDrawerItem(
