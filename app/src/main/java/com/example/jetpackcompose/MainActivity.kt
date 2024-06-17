@@ -39,7 +39,7 @@ class MainActivity : ComponentActivity() {
             composable(Destination.Detail.route) { backStackEntry ->
                 val id = backStackEntry.arguments?.getString("userId")
                 id?.let {
-                    DetailScreen(id = it.toInt())
+                    DetailScreen(navController = navController, id = it.toInt())
                 }
             }
         }
