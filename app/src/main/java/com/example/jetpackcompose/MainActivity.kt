@@ -18,10 +18,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.content.getSystemService
 import androidx.core.content.pm.ShortcutInfoCompat
 import androidx.core.content.pm.ShortcutManagerCompat
@@ -54,7 +52,7 @@ class MainActivity : ComponentActivity() {
                             null -> Unit
                         }
 
-                        Button(onClick = ::addStaticShortcut) {
+                        Button(onClick = ::addDynamicShortcut) {
                             Text(text = "Add Static Shortcut")
                         }
 
@@ -72,7 +70,7 @@ class MainActivity : ComponentActivity() {
         handleIntent(intent)
     }
 
-    private fun addStaticShortcut() {
+    private fun addDynamicShortcut() {
         val shortcut = ShortcutInfoCompat.Builder(applicationContext, "dynamic")
             .setShortLabel("Dynamic Shortcut")
             .setLongLabel("this is for testing Dynamic Shortcut")
